@@ -1,25 +1,17 @@
 import numpy as np
 
+total = 0
+
 def missing_number(arr, n):
-    arr_set = set(arr.astype(int))  # Convert NumPy array to set of integers
-    print("Missing numbers:")
-    for i in range(0, n):  # Use n instead of 'number'
-        if i not in arr_set:  # Check against the set
-            print(i)
+    # Calculate the sum of first n natural numbers
+    total = n * (n + 1) // 2
+    
+    # Calculate the sum of numbers in the array
+    sum_arr = sum(arr)
+    
+    # Find the missing number by subtracting sum_arr from total
+    missing = total - sum_arr
+    
+    return missing
 
-# Create an empty NumPy array
-my_array = np.array([], dtype=int)
-
-while True:
-    a = input("Enter the contents of array (or 'x' to exit): ")
-    if a.lower() == 'x':
-        break
-    else:
-        try:
-            b = int(a)
-            my_array = np.append(my_array, b)  # Append correctly
-        except ValueError:
-            print("Invalid input! Please enter an integer or 'x' to exit.")
-
-number = int(input("Enter the number of elements: "))  # Number should be passed as an argument
-missing_number(my_array, number)  # Correct function call
+print(missing_number([1, 2, 3, 4, 6], 6))
