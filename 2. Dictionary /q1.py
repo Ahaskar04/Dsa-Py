@@ -18,7 +18,7 @@
 def count_word_frequency(words):
     word_freq = {}
     for word in words:
-        word_freq[word] = word_freq.get(word, 0) + 1
+        word_freq[word] = word_freq.get(word, 0) + 1 #get() method returns the value of the specified key. If the key does not exist: insert the key, with the specified value
     return word_freq
 
 words = ['apple', 'orange', 'banana', 'apple', 'orange', 'apple']
