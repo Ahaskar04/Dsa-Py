@@ -1,3 +1,4 @@
+# Define a function that takes a dictionary as a parameter and returns a dictionary with elements based on a condition.
 def merge_and_sum(dict1, dict2):
     # Start with a copy of the first dictionary
     merged = dict1.copy()
