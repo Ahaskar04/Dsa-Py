@@ -7,3 +7,7 @@ def insert_value_front(input_tuple, value_to_insert):
     return tuple(list_data)
     
 print(insert_value_front((1,2,3), 15))
+
+
+def insert_value_at_beginning(input_tuple, value_to_insert):
+    return (value_to_insert,) + input_tuple
