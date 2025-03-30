@@ -1,3 +1,4 @@
+# Write a function to find and return the middle node of a singly linked list. If the list has an even number of nodes, return the second of the two middle nodes.
 
 class Node:
     def __init__(self, value):
@@ -43,4 +44,6 @@ class LinkedList:
             slow = slow.next
             fast = fast.next.next
         return slow
+
+
 

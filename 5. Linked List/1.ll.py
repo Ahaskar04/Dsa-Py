@@ -12,12 +12,6 @@ class LinkedList:
         self.tail = new_node
 
 #Insert element at end of linked list
-class LinkedList:
-    def __init__(self, value):
-        self.head = None
-        self.tail = None
-        self.length = 0
-
     def append(self, value):
         new_node = Node(value)
         if self.head == None:  # if linked list is empty
