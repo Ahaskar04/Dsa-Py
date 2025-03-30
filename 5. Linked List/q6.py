@@ -29,8 +29,18 @@ class LinkedList:
                 current = current.next
         return current
     
+    # def find_middle(self):
+    #      TODO
+    #     mid_index = self.length // 2
+    #     return self.get(mid_index)
+
+
+# "fast and slow pointer" technique
     def find_middle(self):
-        # TODO
-        mid_index = self.length // 2
-        return self.get(mid_index)
+        slow = self.head
+        fast = self.head
+        while fast is not None and fast.next is not None:
+            slow = slow.next
+            fast = fast.next.next
+        return slow
 
