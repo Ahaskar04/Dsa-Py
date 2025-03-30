@@ -41,17 +41,14 @@ class LinkedList:
         return node.value
         
     def reverse(self):
-        if self.head is None or self.head.next is None:
-            return  # No need to reverse
-    
-        previous = None
+        prev = None
         current = self.head
-        self.tail = self.head  # Old head becomes new tail
+        self.tail = self.head  # Update tail to old head
     
         while current:
-            forward = current.next
-            current.next = previous
-            previous = current
-            current = forward
+            next_node = current.next
+            current.next = prev
+            prev = current
+            current = next_node
     
-        self.head = previous
+        self.head = prev  # Update head to new front node
