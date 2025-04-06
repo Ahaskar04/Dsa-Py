@@ -51,6 +51,12 @@ class CSLinkedList:
         count += 1
         return count
 
-            
-    
-        
+        # def count_nodes(self):
+        # count = 0
+        # temp = self.head
+        # while temp:
+        #     count += 1
+        #     temp = temp.next
+        #     if temp == self.head:
+        #         break
+        # return count
