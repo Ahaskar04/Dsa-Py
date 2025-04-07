@@ -4,6 +4,9 @@
 # Split a Circular Linked List into Two Equal Halves
 # Write a function to split the circular linked list into two equal halves. If the list has odd number of nodes, the extra node should go to the first list. 
 
+# Split a Circular Linked List into Two Equal Halves
+# Write a function to split the circular linked list into two equal halves. If the list has odd number of nodes, the extra node should go to the first list. 
+
 class Node:
     def __init__(self, value):
         self.value = value
@@ -43,43 +46,20 @@ class CSLinkedList:
 
     def split_list(self):
         if self.head is None or self.length == 0:
-            return None, None
+            return CSLinkedList(), CSLinkedList()
     
-        mid = (self.length + 1) // 2  # Extra node to first list if odd
+        mid = (self.length + 1) // 2
         temp = self.head
     
-        # First circular list
-        first_head = None
-        first_tail = None
+        first = CSLinkedList()
+        second = CSLinkedList()
     
         for _ in range(mid):
-            new_node = Node(temp.value)
-            if first_head is None:
-                first_head = first_tail = new_node
-            else:
-                first_tail.next = new_node
-                first_tail = new_node
+            first.append(temp.value)
             temp = temp.next
-    
-        first_tail.next = first_head  # Make it circular
-    
-        # Second circular list
-        second_head = None
-        second_tail = None
     
         for _ in range(self.length - mid):
-            new_node = Node(temp.value)
-            if second_head is None:
-                second_head = second_tail = new_node
-            else:
-                second_tail.next = new_node
-                second_tail = new_node
+            second.append(temp.value)
             temp = temp.next
     
-        if second_tail:
-            second_tail.next = second_head  # Make it circular
-    
-        return first_head, second_head
- 
-
-
+        return first, second
