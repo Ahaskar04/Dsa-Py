@@ -46,7 +46,7 @@ class CSLinkedList:
 
     def split_list(self):
         if self.head is None or self.length == 0:
-            return CSLinkedList(), CSLinkedList()
+            return None, None
     
         mid = (self.length + 1) // 2
         temp = self.head
