@@ -14,7 +14,7 @@ class CircularLinkedList:
         new_node = Node(data)
         if not self.head:
             self.head = new_node
-            self.head.next = self.head
+            self.head.next = new_node
         else:
             temp = self.head
             while temp.next != self.head:
@@ -22,26 +22,54 @@ class CircularLinkedList:
             temp.next = new_node
             new_node.next = self.head
 
-    def print_list(self):
-        nodes = []
-        temp = self.head
-        while temp:
-            nodes.append(str(temp.data))
-            temp = temp.next
-            if temp == self.head:
-                break
-        print(" -> ".join(nodes))
+    def prepend(self, data):
+        new_node = Node(data)
+        if not self.head:
+            self.head = new_node
+            new_node.next = new_node
+        else:
+            new_node.next = self.head
+            temp = self.head
+            while temp.next != self.head:
+                temp = temp.next
+            temp.next = new_node
+            self.head = new_node
 
-    def is_sorted(self):
-        if self.head is None or self.head.next == self.head:
-            return True  # Empty or single-node list is trivially sorted
+
+    def insert_into_sorted(self, data):
+        newNode = Node(data)
     
-        temp = self.head
-        while temp.next != self.head:
-            if temp.data > temp.next.data:
-                return False
-            temp = temp.next
-        return True
-
+        # Case 1: Empty list
+        if self.head is None:
+            self.head = newNode 
+            newNode.next = newNode
+            return
+    
+        # Case 2: Insert before head
+        if data < self.head.data:
+            temp = self.head
+            while temp.next != self.head:
+                temp = temp.next
+            temp.next = newNode
+            newNode.next = self.head
+            self.head = newNode
+            return
+    
+        # Case 3: Insert somewhere after head
+        prev = self.head
+        current = self.head.next
+        while current != self.head and current.data < data:
+            prev = current
+            current = current.next
+    
+        prev.next = newNode
+        newNode.next = current
+    
+                    
+            
+            
+            
+            
+            
             
         
