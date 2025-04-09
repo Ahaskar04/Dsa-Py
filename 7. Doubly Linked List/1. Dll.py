@@ -31,6 +31,12 @@ class DoublyLinkedList:
             print(current_node.data)
             current_node = current_node.next
 
+        def reverse_transverse(self):
+            current_node = self.tail
+            while current_node is not None:
+                print(current_node.data)
+                current_node = current_node.prev
+
     def append(self, data):
         new_node = Node(data)
         if self.head is None:
