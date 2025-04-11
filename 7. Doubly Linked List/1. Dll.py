@@ -85,4 +85,20 @@ class DoublyLinkedList:
             else:
                 raise IndexError("Index out of bounds")
             
-        
+        def insert(self, index, data):
+            new_node = Node(data)
+            temp_node = self.head
+            if index == 0:
+                self.prepend(data)
+            elif index == self.length:
+                self.append(data)
+            elif index < 0 or index > self.length:
+                raise IndexError("Index out of bounds")
+            else:
+                for _ in range(index - 1):
+                    temp_node = temp_node.next
+                new_node.next = temp_node.next
+                new_node.prev = temp_node
+                temp_node.next.prev = new_node
+                temp_node.next = new_node
+                self.length += 1
