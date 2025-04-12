@@ -102,3 +102,44 @@ class DoublyLinkedList:
                 temp_node.next.prev = new_node
                 temp_node.next = new_node
                 self.length += 1
+
+            def pop_first(self):
+                if self.head is None:
+                    return None
+                popped_node = self.head
+                self.head = self.head.next
+                if self.head is not None:
+                    self.head.prev = None
+                else:
+                    self.tail = None
+                self.length -= 1
+                return popped_node.data
+            
+            def pop(self):
+                if self.tail is None:
+                    return None
+                popped_node = self.tail
+                self.tail = self.tail.prev
+                if self.tail is not None:
+                    self.tail.next = None
+                else:
+                    self.head = None
+                self.length -= 1
+                return popped_node.data
+            
+            def remove(self, data):
+                current_node = self.head
+                while current_node is not None:
+                    if current_node.data == data:
+                        if current_node.prev is not None:
+                            current_node.prev.next = current_node.next
+                        else:
+                            self.head = current_node.next
+                        if current_node.next is not None:
+                            current_node.next.prev = current_node.prev
+                        else:
+                            self.tail = current_node.prev
+                        self.length -= 1
+                        return True
+                    current_node = current_node.next
+                return False
