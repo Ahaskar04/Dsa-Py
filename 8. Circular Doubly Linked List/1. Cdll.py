@@ -54,3 +54,13 @@ class CircularDoublyLinkedList:
             self.head.prev = new_node
             self.head = new_node
         self.length += 1
+
+    def traverse_forward(self):
+        temp_node = self.head
+        if temp_node is not None:
+            while True:
+                print(temp_node.data, end=' ')
+                if temp_node.next == self.head:
+                    break
+                temp_node = temp_node.next
+        print()
