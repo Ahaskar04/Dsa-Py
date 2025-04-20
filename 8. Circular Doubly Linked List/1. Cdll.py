@@ -64,3 +64,13 @@ class CircularDoublyLinkedList:
                     break
                 temp_node = temp_node.next
         print()
+
+    def traverse_backward(self):
+        temp_node = self.tail
+        if temp_node is not None:
+            while True:
+                print(temp_node.data, end=' ')
+                if temp_node.prev == self.tail:
+                    break
+                temp_node = temp_node.prev
+        print()
