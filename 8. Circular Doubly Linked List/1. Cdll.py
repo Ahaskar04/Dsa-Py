@@ -74,3 +74,14 @@ class CircularDoublyLinkedList:
                     break
                 temp_node = temp_node.prev
         print()
+
+    def search(self, key):
+        temp_node = self.head
+        if temp_node is not None:
+            while True:
+                if temp_node.data == key:
+                    return temp_node
+                if temp_node.next == self.head:
+                    break
+                temp_node = temp_node.next
+        return None
