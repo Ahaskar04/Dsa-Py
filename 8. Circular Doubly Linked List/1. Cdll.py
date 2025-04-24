@@ -85,3 +85,11 @@ class CircularDoublyLinkedList:
                     break
                 temp_node = temp_node.next
         return None
+    
+    def get(self, index):
+        if index < 0 or index >= self.length:
+            return None
+        temp_node = self.head
+        for _ in range(index):
+            temp_node = temp_node.next
+        return temp_node.data
