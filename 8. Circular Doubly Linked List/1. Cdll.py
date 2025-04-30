@@ -87,9 +87,96 @@ class CircularDoublyLinkedList:
         return None
     
     def get(self, index):
-        if index < 0 or index >= self.length:
-            return None
-        temp_node = self.head
-        for _ in range(index):
-            temp_node = temp_node.next
-        return temp_node.data
+        current_index = None
+        if index < self.length // 2:
+            current_index = self.head
+            for i in range(index):
+                current_index = current_index.next
+        else:
+            current_index = self.tail
+            for i in range(self.length - 1, index, -1):
+                current_index = current_index.prev
+            return current_index
+        
+    def set(self, index, data):
+        temp = self.get(index)
+        if temp is not None:
+            temp.data = data
+            return True
+        else:
+            return False
+        
+    def insert(self, index, data):
+        if index < 0 or index > self.length:
+            return False
+        if index == 0:
+            self.prepend(data)
+        elif index == self.length:
+            self.append(data)
+        else:
+            new_node = Node(data)
+            temp_node = self.get(index-1)
+            new_node.next = temp_node.next
+            new_node.prev = temp_node
+            temp_node.next.prev = new_node
+            temp_node.next = new_node
+            self.length += 1
+
+    def pop_first(self):
+            popped_node = self.head
+            if self.head is None:
+                return None
+            if self.head == self.tail:
+                self.head = None
+                self.tail = None
+            else:
+                self.head = self.head.next
+                popped_node.next.prev = self.tail
+                popped_node.prev.next = self.head
+                self.head.prev = self.tail
+                self.tail.next = self.head
+                self.length -= 1
+            return popped_node.data
+        
+    def pop(self):
+            popped_node = self.tail
+            if self.head is None:
+                return None
+            if self.head == self.tail:
+                self.head = None
+                self.tail = None
+            else:
+                self.tail = self.tail.prev
+                popped_node.prev.next = self.head
+                popped_node.next.prev = self.tail
+                self.head.prev = self.tail
+                self.tail.next = self.head
+                self.length -= 1
+            return popped_node.data
+        
+    def remove(self, key):
+        if self.head is None:
+            return False
+        if self.head.data == key:
+            self.pop_first()
+            return True
+        elif self.tail.data == key:
+            self.pop()
+            return True
+        else:
+            temp_node = self.head
+            while True:
+                if temp_node.data == key:
+                    temp_node.prev.next = temp_node.next
+                    temp_node.next.prev = temp_node.prev
+                    self.length -= 1
+                    return True
+                if temp_node.next == self.head:
+                    break
+                temp_node = temp_node.next
+        return False
+    
+    def delete_all(self):
+        self.head = None
+        self.tail = None
+        self.length = 0
