@@ -1,3 +1,7 @@
+# This code implements a stack using a singly linked list.
+# It includes methods to push, pop, and find the minimum element in the stack.
+
+
 # Node Class
 class Node:
     def __init__(self, value):

@@ -38,3 +38,7 @@ class Stack:
         self.size -= 1
         return poppedNode
         
+    def peek(self):
+        if self.is_empty():
+            raise Exception("Stack is empty")
+        return self.linkedList.head.value
