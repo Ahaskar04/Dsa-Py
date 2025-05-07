@@ -40,7 +40,7 @@ def postOrderTraversal(rootNode):
     postOrderTraversal(rootNode.rightChild)
     print(rootNode.data)
 
-def levelOrderTraversal(rootNode):
+def levelOrderTraversal(rootNode):  #Binary Tree Traversal
     if not rootNode:
         return
     else:
