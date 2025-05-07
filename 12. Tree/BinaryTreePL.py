@@ -3,8 +3,8 @@
 
 class BinaryTree:
     def __init__(self, size):
-        self.customList = size * [None]
-        self.lastUsedIndex = 0
+        self.customList = size * [None] #size of the list
+        self.lastUsedIndex = 0  #because we'll skip the 0th index
         self.maxSize = size
     
     def insertNode(self, value):
@@ -20,7 +20,8 @@ class BinaryTree:
                 return "Success"
         return "Not found"
     
-    def preOrderTraversal(self, index):
+    def preOrderTraversal(self, index): #using index to traverse(as we skip the 0th index)
+        # Pre-order Traversal: Root -> Left -> Right
         if index > self.lastUsedIndex:
             return
         print(self.customList[index])
