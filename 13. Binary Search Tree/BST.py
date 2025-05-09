@@ -1,6 +1,10 @@
 #   Created by Elshad Karimov 
 #   Copyright © 2020 AppMillers. All rights reserved.
 
+# In a Binary Search Tree, 
+# the left child is less than the parent node and the right child is greater than the parent node.
+
+
 import QueueLinkedList as queue
 
 class BSTNode:
