@@ -6,12 +6,13 @@ When multiple keys hash to the same index in a hash table (a collision), we need
 
 - This method uses a linked list at each index of the hash table.
 - If multiple elements hash to the same index, they are stored in the linked list at that index.
-- It handles collisions efficiently and allows unlimited elements per slot, limited only by memory.
+- **Best suited when deletions are frequent**, as removing nodes from a linked list is straightforward and efficient.
 
 ## 2. Open Addressing
 
 - Instead of using linked lists, all elements are stored within the hash table itself.
 - When a collision occurs, the algorithm searches for the next available slot based on a probing technique.
+- **Best used when the size of the array (hash table) is known in advance**, as it requires a fixed-size array and performs better with less dynamic resizing.
 
 ### \* Linear Probing
 
