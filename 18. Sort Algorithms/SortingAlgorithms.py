@@ -65,9 +65,9 @@ def merge(customList, l, m, r):
     for j in range(0, n2):
         R[j] = customList[m+1+j]
     
-    i = 0 
-    j = 0
-    k = l
+    i = 0  # initial index of first subarray
+    j = 0  # initial index of second subarray
+    k = l  # initial index of merged subarray
     while i < n1 and j < n2:
         if L[i] <= R[j]:
             customList[k] = L[i]
