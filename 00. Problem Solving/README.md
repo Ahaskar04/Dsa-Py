@@ -1,9 +1,5 @@
 # 🧠 Structured Problem Solving Framework
 
-A simple and effective 5-step strategy to approach and solve coding or algorithmic problems. Ideal for interviews, competitions, and real-world programming tasks.
-
----
-
 ## ✅ Step 1: Understand the Problem
 
 > The goal is to clarify the problem fully before jumping into solutions.
@@ -58,16 +54,3 @@ A simple and effective 5-step strategy to approach and solve coding or algorithm
 - Can we **reuse this method** in another problem?
 - Can we **optimize the performance**?
 - How have **others solved this problem**?
-
----
-
-## 🧠 Why Use This Framework?
-
-- Prevents rushing into code without understanding
-- Makes debugging easier by planning upfront
-- Builds reusable, clean, and scalable solutions
-- Encourages learning from each problem
-
----
-
-Happy Problem Solving! 🚀
